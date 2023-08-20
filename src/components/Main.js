@@ -18,6 +18,7 @@ function Greeting() {
 }
 
 let Username = "Jeff Reeves";
+let userImage = './../assets/elon-musk-masks-now-available-to-public-alt-az-732169.png';
 
 let theme = createTheme();
 
@@ -58,7 +59,7 @@ function Main() {
           }}
         >
           <Box sx={{ width: "10%", height: "98%", marginLeft: "1%" }}>
-            <SideBar />
+            <SideBar userimage={userImage}/>
           </Box>
           <Box
             sx={{
