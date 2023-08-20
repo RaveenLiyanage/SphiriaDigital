@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import React from "react";
 import HotIcon from "./../assets/hot.png";
 import HotCollectionCard from "./HotCollectionCard";
@@ -31,6 +31,7 @@ const vehicles = [
 ];
 
 function HotCollections() {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
     <Box
       sx={{
@@ -52,7 +53,14 @@ function HotCollections() {
         ></Box>
         <Box marginLeft="2%">Hot Collections</Box>
       </Box>
-      <Box sx={{height:'100%', display:'flex', justifyContent:'space-between'}}>
+      <Box
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection:isMobile?'column':'row',
+          justifyContent: "space-between",
+        }}
+      >
         <HotCollectionCard vehicle={vehicles[0]} />
         <HotCollectionCard vehicle={vehicles[1]} />
       </Box>

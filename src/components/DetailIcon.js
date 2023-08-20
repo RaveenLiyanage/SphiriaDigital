@@ -41,30 +41,30 @@ function UnitSelector(icon) {
 function BackgroundColorSelector(icon, value) {
     if (icon=='engineCapacity') {
         if (value>1000) {
-            return ('#fe1');
+            return ('rgba(255,0,0,0.4)');
         } else {
             return ('#11f');
         }
     }
     if (icon=='horsePower') {
         if (value>300) {
-            return ('#11f');
+            return ('rgba(0,0,255,0.4)');
         } else {
-            return ('#41f');
+            return ('rgba(0,0,50,0.1)');
         }
     }
     if (icon=='cylinders') {
-        if (value>1000) {
+        if (value>4) {
             return ('#fe1');
         } else {
             return ('#11f');
         }
     }
-    if (icon=='transmission ') {
-        if (value>1000) {
-            return ('#fe1');
+    if (icon=='transmission') {
+        if (value>4) {
+            return ('rgba(200,100,0,0.5)');
         } else {
-            return ('#11f');
+            return ('rgba(100,100,0,0.5)');
         }
     }
 }
@@ -79,7 +79,7 @@ function DetailIcon({ icon, value }) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor:'#fcc',
+        backgroundColor:BackgroundColorSelector(icon, value),
         borderRadius:'15px'
       }}
     >

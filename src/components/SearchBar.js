@@ -1,14 +1,19 @@
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField, useMediaQuery } from "@mui/material";
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
 function SearchBar() {
+
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
   return (
     <TextField
       sx={{
+        width:isMobile?'40vw':'20vw',
+        height:isMobile?'5vh':'auto',
         border: "none",
         "& fieldset": { border: "none" },
-        borderRadius: "25px",
+        borderRadius: isMobile? '15px':'25px',
         backgroundColor: "white",
       }}
       InputProps={{
