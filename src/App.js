@@ -1,4 +1,4 @@
-import { Box, ThemeProvider, createTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import "./App.css";
 import Main_Bg from "./assets/main_bg.jpg";
 import SideBar from "./components/SideBar";
@@ -20,70 +20,52 @@ function Greeting() {
 
 let Username = "Jeff Reeves";
 
-const theme = createTheme();
-
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <Box
+      component="div"
+      sx={{
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        backgroundImage: `url(${Main_Bg})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Box
-        component="div"
         sx={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url(${Main_Bg})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: "90%",
+          height: "95%",
+          borderRadius: "20px",
+          backgroundColor: "#efefff",
         }}
       >
-        <Box
-          sx={{
-            width: "90%",
-            height: "95%",
-            borderRadius: "20px",
-            backgroundColor: "#efefff",
-          }}
-        >
-          <Header />
-          <Box
-            sx={{
-              height: "90%",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <Box sx={{ width: "10%", height: "98%", marginLeft: "1%" }}>
-              <SideBar />
-            </Box>
-            <Box
-              sx={{
-                width: "85%",
-                height: "98%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-around",
-              }}
-            >
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <Box>{Greeting()},</Box>
-                  <Box>{Username}</Box>
-                </Box>
-                <Box sx={{ marginRight: "2%" }}>
-                  <SearchBar />
-                </Box>
+        <Header />
+        <Box sx={{ height:'90%', display: "flex", justifyContent: "space-between" }}>
+          <Box sx={{ width: "10%", height: "98%", marginLeft: "1%" }}>
+            <SideBar />
+          </Box>
+          <Box sx={{ width: "85%", height:'98%', display: "flex", flexDirection: "column", justifyContent:'space-around' }}>
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Box>{Greeting()},</Box>
+                <Box>{Username}</Box>
               </Box>
-              <HotCollections />
-              <RegularCollections />
+              <Box sx={{marginRight:'2%'}}>
+                <SearchBar />
+              </Box>
             </Box>
+            <HotCollections />
+            <RegularCollections />
           </Box>
         </Box>
       </Box>
-    </ThemeProvider>
+    </Box>
   );
 }
 
